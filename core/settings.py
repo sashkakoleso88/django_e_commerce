@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+APPS_DIR = BASE_DIR.joinpath("apps")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -25,12 +25,20 @@ SECRET_KEY = "django-insecure--ge4^k^p3%0r(o0hjf_31o%*ku!_hv)u4hj3me)4=kt_hgy+3=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "0.0.0.0",
+    "localhost",
+]
 
 
 # Application definition
 
-INSTALLED_APPS = [
+LOCAL_APPS = [
+    "apps.myapp",
+]
+
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,6 +46,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
+
+THIRD_PARTY_APPS = []
+
+INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

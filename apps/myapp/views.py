@@ -1,9 +1,15 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Product
 
 
 def index(request):
-    return HttpResponse("Home page :)")
+    products = Product.objects.all()
+    context = {
+        "title": "Our products",
+        "products": products,
+    }
+    return render(request, "myapp/list_of_products.html", context=context)
 
 
 def contacts(request):

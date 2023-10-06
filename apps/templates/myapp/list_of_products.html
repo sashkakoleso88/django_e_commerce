@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+<conten>
+    {% for product in products %}
+        <li>{{ product.name }} - {{ product.price  }} - {{ product.description }}</li>
+    {% endfor %}
+</conten>
+
+</body>
+</html>
